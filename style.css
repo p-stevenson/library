@@ -1,0 +1,27 @@
+:root {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 99vh;
+	background-color: darkgrey;
+	border: 3px solid hotpink;
+}
+
+.form-container {
+	position: fixed;
+	border: 5px double black;
+	background-color: white;
+	max-width: 350px;
+	top: 30%;
+	left: calc(50% - 160px);
+	padding: 15px;
+}
+
+.btn {
+	margin: 1rem 0 0 0;
+}
