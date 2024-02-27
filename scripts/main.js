@@ -5,6 +5,7 @@ function Book(title, author, pages, read = false) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
+	this.uuid = crypto.randomUUID();
 }
 
 Book.prototype.hasRead = function () {
