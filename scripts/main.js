@@ -11,3 +11,15 @@ function Book(title = 'The Hobbit', author = 'J.R.R Tolkien', pages = 200, read 
 Book.prototype.hasRead = () => {
 	return this.read ? 'read' : 'not read';
 };
+
+(function () {
+	const openBtn = document.getElementById('openFormButton');
+	const closeBtn = document.getElementById('closeFormButton');
+
+	openBtn.addEventListener('click', () => {
+		document.getElementById('form-container').style.display = 'block';
+	});
+	closeBtn.addEventListener('click', () => {
+		document.getElementById('form-container').style.display = 'none'
+	});
+})();

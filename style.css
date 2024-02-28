@@ -26,7 +26,8 @@ header {
 	align-items: center;
 }
 
-.form-container {
+#form-container {
+	display: none;
 	position: fixed;
 	border: 5px double black;
 	background-color: white;
