@@ -19,14 +19,14 @@
 		<fieldset>
 			<legend class="visually-hidden">New Book Entry Form</legend>
 			<p class="instructions">Fields marked with "*" are required</p>
-			<form id="newBookForm" action='#' method='post'>
+			<form id="newBookForm" action='#' method='get'>
 				<p>
 					<label class='input-field-label' for='bookTitle'>
 						<span>Title:</span>
 						<strong>
 							<span aria-label="required">*</span>
 						</strong>
-						<input type='text' name='bookTitle' id="bookTitle" required>
+						<input type='text' name='bookTitle' id="bookTitle" required autocomplete="off">
 					</label>
 				</p>
 				<p>
@@ -35,13 +35,13 @@
 						<strong>
 							<span aria-label="required">*</span>
 						</strong>
-						<input type='text' name='author' id="author" required>
+						<input type='text' name='author' id="author" required autocomplete="off">
 					</label>
 				</p>
 				<p>
 					<label class='input-field-label' for='numOfPages'>
 						<span>Pages:</span>
-						<input type='number' name='numOfPages' id="numOfPages" min="1" max="10000">
+						<input type='number' name='numOfPages' id='numOfPages' min="1" max="10000" autocomplete="off">
 					</label>
 				</p>
 				<fieldset>
@@ -57,6 +57,5 @@
 		</fieldset>
 	</section>
 </div>
-<!--	TODO Remember that OPEN and CLOSE buttons are currently hidden behind form...-->
 </body>
 </html>
