@@ -10,48 +10,53 @@
 	<title>Library</title>
 </head>
 <body>
-<button class="btn" id="openFormButton">OPEN</button>
-<button class="btn" id="closeFormButton">CLOSE</button>
-<section class="form-container">
-	<h1 id="formTitle">Add to Library</h1>
-	<fieldset>
-		<legend class="visually-hidden">New Book Entry Form</legend>
-		<p class="instructions">Fields marked with "*" are required</p>
-		<form id="newBookForm" action='#' method='post'>
-			<p>
-				<label class='input-field-label' for='bookTitle'>
-					<span>Title:</span>
-					<strong>
-						<span aria-label="required">*</span>
-					</strong>
-					<input type='text' name='bookTitle' id="bookTitle" required>
-				</label>
-			</p>
-			<p>
-				<label class='input-field-label' for='author'>
-					<span>Author:</span>
-					<strong>
-						<span aria-label="required">*</span>
-					</strong>
-					<input type='text' name='author' id="author" required>
-				</label>
-			</p>
-			<p>
-				<label class='input-field-label' for='numOfPages'>
-					<span>Pages:</span>
-					<input type='number' name='numOfPages' id="numOfPages" min="1" max="10000">
-				</label>
-			</p>
-			<fieldset>
-				<legend>Read:</legend>
-				<label class="radio-label" for="hasRead">Yes</label>
-				<input type="radio" name="hasRead" id="hasRead" value=true>
-				<label class="radio-label" for="hasNotRead">No</label>
-				<input type="radio" name="hasRead" id="hasNotRead" value=false checked>
-			</fieldset>
-			<button class='btn' type="submit">SUBMIT</button>
-		</form>
-	</fieldset>
-</section>
+<header>
+	<button class="btn" id="openFormButton">OPEN</button>
+</header>
+<div class="main-content">
+	<section class="form-container">
+		<h1 id="formTitle">Add to Library</h1>
+		<fieldset>
+			<legend class="visually-hidden">New Book Entry Form</legend>
+			<p class="instructions">Fields marked with "*" are required</p>
+			<form id="newBookForm" action='#' method='post'>
+				<p>
+					<label class='input-field-label' for='bookTitle'>
+						<span>Title:</span>
+						<strong>
+							<span aria-label="required">*</span>
+						</strong>
+						<input type='text' name='bookTitle' id="bookTitle" required>
+					</label>
+				</p>
+				<p>
+					<label class='input-field-label' for='author'>
+						<span>Author:</span>
+						<strong>
+							<span aria-label="required">*</span>
+						</strong>
+						<input type='text' name='author' id="author" required>
+					</label>
+				</p>
+				<p>
+					<label class='input-field-label' for='numOfPages'>
+						<span>Pages:</span>
+						<input type='number' name='numOfPages' id="numOfPages" min="1" max="10000">
+					</label>
+				</p>
+				<fieldset>
+					<legend>Read:</legend>
+					<label class="radio-label" for="hasRead">Yes</label>
+					<input type="radio" name="hasRead" id="hasRead" value=true>
+					<label class="radio-label" for="hasNotRead">No</label>
+					<input type="radio" name="hasRead" id="hasNotRead" value=false checked>
+				</fieldset>
+				<button class="btn" id="closeFormButton">CLOSE</button>
+				<button class='btn' type="submit">SUBMIT</button>
+			</form>
+		</fieldset>
+	</section>
+</div>
+<!--	TODO Remember that OPEN and CLOSE buttons are currently hidden behind form...-->
 </body>
 </html>
