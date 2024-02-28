@@ -12,18 +12,6 @@ Book.prototype.hasRead = () => {
 	return this.read ? 'read' : 'not read';
 };
 
-//(function () {
-//	const openBtn = document.getElementById('openFormButton');
-//	const closeBtn = document.getElementById('closeFormButton');
-//
-//	openBtn.addEventListener('click', () => {
-//		document.getElementById('form-container').style.display = 'block';
-//	});
-//	closeBtn.addEventListener('click', () => {
-//		document.getElementById('form-container').style.display = 'none'
-//	});
-//})();
-
 (function () {
 	const buttons = document.querySelectorAll('.btn');
 	const openFormButton = document.getElementById('openFormButton');
@@ -38,4 +26,4 @@ Book.prototype.hasRead = () => {
 			}
 		})
 	})
-})()
+})();
