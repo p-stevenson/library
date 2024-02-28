@@ -12,14 +12,30 @@ Book.prototype.hasRead = () => {
 	return this.read ? 'read' : 'not read';
 };
 
-(function () {
-	const openBtn = document.getElementById('openFormButton');
-	const closeBtn = document.getElementById('closeFormButton');
+//(function () {
+//	const openBtn = document.getElementById('openFormButton');
+//	const closeBtn = document.getElementById('closeFormButton');
+//
+//	openBtn.addEventListener('click', () => {
+//		document.getElementById('form-container').style.display = 'block';
+//	});
+//	closeBtn.addEventListener('click', () => {
+//		document.getElementById('form-container').style.display = 'none'
+//	});
+//})();
 
-	openBtn.addEventListener('click', () => {
-		document.getElementById('form-container').style.display = 'block';
-	});
-	closeBtn.addEventListener('click', () => {
-		document.getElementById('form-container').style.display = 'none'
-	});
-})();
+(function () {
+	const buttons = document.querySelectorAll('.btn');
+	const openFormButton = document.getElementById('openFormButton');
+	const closeFormButton = document.getElementById('closeFormButton');
+
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			if (button === openFormButton) {
+				document.getElementById('form-container').style.display = "block"
+			} else if (button === closeFormButton) {
+				document.getElementById('form-container').style.display = "none"
+			}
+		})
+	})
+})()
