@@ -22,12 +22,17 @@ Book.prototype.hasRead = () => {
 	});
 
 	buttons.forEach((button) => {
-		button.addEventListener('click', () => {
-			if (button === openFormButton) {
-				document.getElementById('form-container').style.display = "block"
-			} else if (button === closeFormButton) {
-				document.getElementById('form-container').style.display = "none"
-			}
-		})
-	})
+		button.addEventListener('click', checkButton)
+	});
+
+	function checkButton() {
+		if (this === openFormButton) {
+			document.getElementById('form-container').style.display = "block"
+		} else if (this === closeFormButton) {
+			document.getElementById('form-container').style.display = "none"
+		} else {
+			const tempBook = new Book();
+			tempBook.add();
+		}
+	}
 })();
