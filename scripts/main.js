@@ -17,28 +17,34 @@ Book.prototype.hasRead = () => {
 	return this.read ? 'read' : 'not read';
 };
 
+//----OPEN FORM----
+(function () {
+	const openFormButton = document.getElementById('openFormButton');
+
+	openFormButton.addEventListener('click', () => {
+		document.getElementById('form-container').style.display = 'block';
+	});
+}());
+
+//----CLOSE FORM----
+(function () {
+	const closeFormButton = document.getElementById('closeFormButton');
+
+	closeFormButton.addEventListener('click', () => {
+		document.getElementById('form-container').style.display = 'none';
+	});
+}());
+
+//----SUBMIT FORM----
 (function () {
 	const newBookForm = document.getElementById('newBookForm');
-	const buttons = document.querySelectorAll('.btn');
-	const openFormButton = document.getElementById('openFormButton');
-	const closeFormButton = document.getElementById('closeFormButton');
+	const submitFormButton = document.getElementById('submitFormButton');
 
 	newBookForm.addEventListener('submit', (e) => {
 		e.preventDefault();
 	});
 
-	buttons.forEach((button) => {
-		button.addEventListener('click', checkButton)
+	submitFormButton.addEventListener('click', () => {
+		new Book().add();
 	});
-
-	function checkButton() {
-		if (this === openFormButton) {
-			document.getElementById('form-container').style.display = "block"
-		} else if (this === closeFormButton) {
-			document.getElementById('form-container').style.display = "none"
-		} else {
-			const tempBook = new Book();
-			tempBook.add();
-		}
-	}
 })();
