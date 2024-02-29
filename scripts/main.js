@@ -8,6 +8,11 @@ function Book(title = 'The Hobbit', author = 'J.R.R Tolkien', pages = 200, read 
 	this.uuid = crypto.randomUUID();
 }
 
+Book.prototype.add = function () {
+	myLibrary.push(this);
+	document.getElementById('form-container').style.display = "none"
+}
+
 Book.prototype.hasRead = () => {
 	return this.read ? 'read' : 'not read';
 };
