@@ -17,6 +17,10 @@ Book.prototype.hasRead = () => {
 	const openFormButton = document.getElementById('openFormButton');
 	const closeFormButton = document.getElementById('closeFormButton');
 
+	newBookForm.addEventListener('submit', (e) => {
+		e.preventDefault();
+	});
+
 	buttons.forEach((button) => {
 		button.addEventListener('click', () => {
 			if (button === openFormButton) {
