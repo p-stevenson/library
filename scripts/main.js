@@ -1,9 +1,9 @@
 const myLibrary = [];
 
-function Book(title = 'The Hobbit', author = 'J.R.R Tolkien', pages = 200, read = false) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
+function Book(read = false) {
+	this.title = document.getElementById('bookTitle').value;
+	this.author = document.getElementById('author').value;
+	this.pages = document.getElementById('numOfPages').value;
 	this.read = read;
 	this.uuid = crypto.randomUUID();
 }
@@ -18,6 +18,7 @@ Book.prototype.hasRead = () => {
 };
 
 (function () {
+	const newBookForm = document.getElementById('newBookForm');
 	const buttons = document.querySelectorAll('.btn');
 	const openFormButton = document.getElementById('openFormButton');
 	const closeFormButton = document.getElementById('closeFormButton');
