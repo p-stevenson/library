@@ -1,20 +1,18 @@
 const myLibrary = [];
 
-function Book(read = false) {
+function Book() {
 	this.title = document.getElementById('bookTitle').value;
 	this.author = document.getElementById('author').value;
 	this.pages = document.getElementById('numOfPages').value;
-	this.read = read;
+	this.read = (function () {
+		return document.getElementById('hasRead').checked;
+	})();
 	this.uuid = crypto.randomUUID();
 }
 
 Book.prototype.add = function () {
 	myLibrary.push(this);
 	document.getElementById('form-container').style.display = "none"
-}
-
-Book.prototype.hasRead = () => {
-	return this.read ? 'read' : 'not read';
 };
 
 //----OPEN FORM----
