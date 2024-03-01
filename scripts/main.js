@@ -28,6 +28,7 @@ Book.prototype.add = function () {
 
 	closeFormButton.addEventListener('click', () => {
 		document.getElementById('form-container').style.display = 'none';
+		clearFormFields();
 	});
 }());
 
@@ -42,5 +43,11 @@ Book.prototype.add = function () {
 
 	submitFormButton.addEventListener('click', () => {
 		new Book().add();
+		clearFormFields();
 	});
 })();
+
+//----CLEAR FORM FIELDS ----
+function clearFormFields() {
+	document.getElementById('newBookForm').reset();
+}
