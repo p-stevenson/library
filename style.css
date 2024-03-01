@@ -26,6 +26,10 @@ header {
 	align-items: center;
 }
 
+#books-container {
+	border: 3px dashed orangered;
+}
+
 #form-container {
 	display: none;
 	position: fixed;
