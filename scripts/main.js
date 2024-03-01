@@ -4,9 +4,7 @@ function Book() {
 	this.title = document.getElementById('bookTitle').value;
 	this.author = document.getElementById('author').value;
 	this.pages = document.getElementById('numOfPages').value;
-	this.read = (function () {
-		return document.getElementById('hasRead').checked;
-	})();
+	this.read = document.getElementById('hasRead').checked;
 	this.uuid = crypto.randomUUID();
 }
 
