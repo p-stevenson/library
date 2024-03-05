@@ -2,7 +2,7 @@ const LIBRARY = [];
 
 function Book() {
 	this.title = document.getElementById('inputTitle').value;
-	this.author = `written by ${document.getElementById('inputAuthor').value}`;
+	this.author = `by ${document.getElementById('inputAuthor').value}`;
 	this.pages = `Pages: ${document.getElementById('inputPages').value}`;
 	this.read = document.getElementById('hasRead').checked;
 	this.uuid = crypto.randomUUID();
@@ -32,24 +32,41 @@ Book.prototype.populateCardInfo = function () {
 
 Book.prototype.setReadStatus = function () {
 	const GET_CARD = document.getElementById(`${this.uuid}`);
-	const TEMP_LABEL = document.createElement('label');
-	const TEMP_ELEMENT = document.createElement('input');
+	const LABEL = document.createElement('label');
+	const INPUT_ELEMENT = document.createElement('input');
 
-	TEMP_LABEL.setAttribute('for', 'readStatus');
-	TEMP_LABEL.setAttribute('name', 'readStatus');
-	TEMP_LABEL.textContent = 'Read Status:';
+	LABEL.setAttribute('for', 'readStatus');
+	LABEL.setAttribute('name', 'readStatus');
+	LABEL.textContent = 'Read:';
 
-	TEMP_ELEMENT.setAttribute('type', 'checkbox');
-	TEMP_ELEMENT.setAttribute('id', 'readStatus');
+	INPUT_ELEMENT.setAttribute('type', 'checkbox');
+	INPUT_ELEMENT.setAttribute('id', 'readStatus');
 
-	(this.read === true) ? TEMP_ELEMENT.setAttribute('checked', 'checked') :
-		TEMP_ELEMENT.removeAttribute('checked');
+	(this.read === true) ? INPUT_ELEMENT.setAttribute('checked', 'checked') :
+		INPUT_ELEMENT.removeAttribute('checked');
 
-	TEMP_ELEMENT.addEventListener('click', () => {
+	INPUT_ELEMENT.addEventListener('click', () => {
 		(this.read === true) ? this.read = false : this.read = true
 	})
-	GET_CARD.appendChild(TEMP_LABEL);
-	GET_CARD.appendChild(TEMP_ELEMENT);
+	GET_CARD.appendChild(LABEL);
+	GET_CARD.appendChild(INPUT_ELEMENT);
+}
+
+Book.prototype.delete = function () {
+	const CONTAINER = document.getElementById('books-container');
+	const GET_CARD = document.getElementById(`${this.uuid}`);
+	const DELETE_BUTTON = document.createElement('button');
+	DELETE_BUTTON.classList.add('delete');
+	DELETE_BUTTON.textContent = 'DELETE';
+	GET_CARD.appendChild(DELETE_BUTTON);
+
+	DELETE_BUTTON.addEventListener("click", () => {
+		for (let book in LIBRARY) {
+			const INDEX_OF_CARD = LIBRARY.findIndex(book => book.uuid === this.uuid)
+			LIBRARY.splice(INDEX_OF_CARD, 1);
+			CONTAINER.removeChild(GET_CARD)
+		}
+	})
 }
 
 Book.prototype.addBook = function () {
@@ -90,6 +107,7 @@ Book.prototype.addBook = function () {
 		TEMP_BOOK.createCard();
 		TEMP_BOOK.populateCardInfo();
 		TEMP_BOOK.setReadStatus();
+		TEMP_BOOK.delete();
 		clearFormFields();
 	});
 })();
