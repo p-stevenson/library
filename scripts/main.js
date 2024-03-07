@@ -61,11 +61,9 @@ Book.prototype.delete = function () {
 	GET_CARD.appendChild(DELETE_BUTTON);
 
 	DELETE_BUTTON.addEventListener("click", () => {
-		for (let book in LIBRARY) {
-			const INDEX_OF_CARD = LIBRARY.findIndex(book => book.uuid === this.uuid)
-			LIBRARY.splice(INDEX_OF_CARD, 1);
-			CONTAINER.removeChild(GET_CARD)
-		}
+		const INDEX_OF_CARD = LIBRARY.findIndex(book => book.uuid === this.uuid)
+		LIBRARY.splice(INDEX_OF_CARD, 1);
+		CONTAINER.removeChild(GET_CARD)
 	})
 }
 
